@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Sottomissioni - {{user}}{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="alert alert-primary" role="alert">
+      Personaggi aggiunti da {{user}}
+    </div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Database</a></li>
+        <li class="breadcrumb-item active" aria-current="page">I miei personaggi</li>
+      </ol>
+    </nav>
+      <table id="personaggi" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Data nascita</th>
+                <th>Telefono</th>
+                <th>Città</th>
+                <th>Provincia</th>
+                <th>Lavoro</th>
+                <th>Aggiunto il</th>
+                <th>Aggiunto da</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p in user.person.all %}
+            <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.fname}}</td>
+                <td>{{p.lname}}</td>
+                <td>{{p.birth_date}}</td>
+                <td>{{p.phone}}</td>
+                <td>{{p.city}}</td>
+                <td>{{p.province}}</td>
+                <td>{{p.job}}</td>
+                <td>{{p.added_date}}</td>
+                <td>{{p.user}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+{% else %}
+<p>Devi essere registrato al municipio di Sicignano per visualizzare le tue entries nel database. Accedi <a href="/login">qui</a> </p>
+{% endif %}
+{% endblock %}

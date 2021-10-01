@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Aggiungi personaggio{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Aggiungi al database</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Database</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Aggiungi</li>
+      </ol>
+    </nav>
+    <form action="" method="POST" class="form-group">
+        {% csrf_token %}
+        {% for i in form %}
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+                <div class="card" style="margin-bottom: 30px;">
+                  <div class="card-header">
+                    {{i.label}}
+                  </div>
+                  <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                      {{i}}
+                    </blockquote>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <button type="submit" value="save" class="btn btn-primary">Save</button>
+    </form>
+{% else %}
+    <div class="alert alert-success" role="alert">
+      <p>Registrati al municipio di Sicignano per contribuire o visualizzare il database. Accedi <a href="/login">qui</a></p>
+    </div>
+<p>Devi essere registrato ala municipio di Sicignano per contribuire al database. Accedi <a href="/login">qui</a> </p>
+{% endif %}
+{% endblock %}
