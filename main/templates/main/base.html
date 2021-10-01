@@ -57,7 +57,7 @@
         <ul>
           {% if user.is_authenticated %}
             <li><a class="getstarted" href="/create">Aggiungi</a></li>
-            <li><a class="nav-link" href="/user-subs">I miei personaggi</a></li>
+            <li><a class="nav-link" href="/user-subs">{{user}}</a></li>
             <li><a class="nav-link" href="/logout">Logout</a></li>
           {% else %}
             <li><a class="nav-link" href="/register">Registrati</a></li>
@@ -75,22 +75,13 @@
     <!-- ======= About Section ======= -->
     <section id="content" class="content">
       <div class="container" data-aos="fade-up">
-
           {% if user.is_authenticated %}
-
             {% block content %}
             {% endblock %}
-
           {% else %}
-
-            <div class="alert alert-success" role="alert">
-              <p>Registrati al municipio di Sicignano per contribuire o visualizzare il database. Accedi <a href="/login">qui</a></p>
-            </div>
             {% block login %}
             {% endblock %}
-
           {% endif %}
-
       </div>
     </section><!-- End About Section -->
 

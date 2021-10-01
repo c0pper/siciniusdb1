@@ -4,9 +4,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-    <div class="alert alert-primary" role="alert">
-      Personaggi aggiunti da {{user}}
-    </div>
+    <h2>Personaggi aggiunti da {{user}}</h2>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Database</a></li>

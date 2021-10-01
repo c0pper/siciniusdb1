@@ -4,6 +4,7 @@
 {% load crispy_forms_tags%}
 
 {% block login %}
+<h2>Crea account</h2>
   <form method="post" class="form-group">
     {% csrf_token %}
     {{form|crispy}}

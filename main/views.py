@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Person
 from .forms import CreateNewPerson
 
 # Create your views here.
 
-
+@login_required(login_url="/login")
 def home(response):
     user = response.user
     print(user)

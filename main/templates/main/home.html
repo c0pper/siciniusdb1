@@ -1,17 +1,15 @@
 {% extends 'main/base.html' %}
 
 
+{% if user.is_authenticated %}
+    {% block content %}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Database</li>
+      </ol>
+    </nav>
 
-{% block content %}
-<div class="alert alert-primary" role="alert">
-  Buongiorno {{user}}, e benvenuto nel database degli amici di telegram per sempre
-</div>
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Database</li>
-  </ol>
-</nav>
-        <table id="personaggi" class="display table-responsive" style="width:100%">
+    <table id="personaggi" class="display table-responsive" style="width:100%">
         <thead>
             <tr>
                 <td>#</td>
@@ -42,4 +40,12 @@
             </tr>
         {% endfor %}
     </table>
-{% endblock %}
+    {% endblock %}
+{% else %}
+
+    <div class="alert alert-success" role="alert">
+      <p>Registrati al municipio di Sicignano per contribuire o visualizzare il database. Accedi <a href="/login">qui</a></p>
+    </div>
+
+{% endif %}
+

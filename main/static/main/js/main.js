@@ -4,6 +4,8 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
+
 $(document).ready( function () {
     $('#personaggi').DataTable();
 } );
