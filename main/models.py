@@ -17,5 +17,6 @@ class Person(models.Model):
     added_date = models.DateTimeField(default=timezone.now())
     added_by = models.CharField(max_length=30, blank=True)
 
+
     def __str__(self):
         return self.fname
