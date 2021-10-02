@@ -8,14 +8,14 @@ from datetime import datetime
 class Person(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="person", null=True)
     fname = models.CharField(max_length=30)
-    lname = models.CharField(max_length=30, blank=True)
-    birth_date = models.CharField(max_length=30)
-    phone = models.CharField(max_length=30)
+    lname = models.CharField(max_length=30)
+    birth_date = models.CharField(max_length=30, blank=True)
+    phone = models.CharField(max_length=30, blank=True)
     city = models.CharField(max_length=30)
     province = models.CharField(max_length=2)
-    job = models.CharField(max_length=30)
+    job = models.CharField(max_length=30, blank=True)
     added_date = models.DateTimeField(default=timezone.now())
-    added_by = models.CharField(max_length=30)
+    added_by = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
         return self.fname
